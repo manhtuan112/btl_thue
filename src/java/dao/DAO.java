@@ -252,7 +252,7 @@ public class DAO {
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                return new SettingInform(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getDate(4));
+                return new SettingInform(rs.getInt(1), rs.getString(3),rs.getString(2), rs.getDate(4));
             }
             
         }catch(SQLException ex){
