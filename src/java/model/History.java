@@ -9,15 +9,17 @@ package model;
  * @author ADMIN
  */
 public class History {
+    private String idthue;
     private String ngaydongthue, idLichsu;
     private String sotiendadong, sotienconno, sotienphaidong;
 
-    public History(String ngaydongthue, String idLichsu, String sotiendadong, String sotienconno, String sotienphaidong) {
+    public History(String ngaydongthue, String idLichsu, String sotiendadong, String sotienconno, String sotienphaidong,String idthue) {
         this.ngaydongthue = ngaydongthue;
         this.idLichsu = idLichsu;
         this.sotiendadong = sotiendadong;
         this.sotienconno = sotienconno;
         this.sotienphaidong = sotienphaidong;
+        this.idthue = idthue;
     }
 
     public String getNgaydongthue() {
@@ -58,6 +60,13 @@ public class History {
 
     public void setSotienphaidong(String sotienphaidong) {
         this.sotienphaidong = sotienphaidong;
+    }
+     public String getIdthue() {
+        return idthue;
+    }
+
+    public void setIdthue(String idthue) {
+        this.idthue = idthue;
     }
 
     @Override
