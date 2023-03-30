@@ -310,11 +310,38 @@ public class DAO {
                         rs.getString(5),
                         Utilities.convertMoneyFormat(rs.getLong(4)),
                         Utilities.convertMoneyFormat(rs.getLong(3)),
-                        Utilities.convertMoneyFormat(rs.getLong(6))));
+                        Utilities.convertMoneyFormat(rs.getLong(6)),
+                        rs.getString(1)));
                 
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    public List<History> getHistorybyAddressDate(String tinh,int thang, int nam){
+        List<History> list=new ArrayList<>();
+        String query= " select* from lichsudongthue where (idthue in (select idThue from users where diachi in (select idDC from diachi where tinh=?))) and month(ngaydongthue)=? and year(ngaydongthue)=?";
+        Connection conn = DBContext.getConnection();
+        try{
+            PreparedStatement ps=conn.prepareStatement(query);
+            ps.setString(1, tinh);
+            ps.setInt(2, thang);
+            ps.setInt(3, nam);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                History n = new History(
+                        Utilities.convertDate(rs.getString(2)),
+                        rs.getString(5),
+                        Utilities.convertMoneyFormat(rs.getLong(4)),
+                        Utilities.convertMoneyFormat(rs.getLong(3)),
+                        Utilities.convertMoneyFormat(rs.getLong(6)),
+                        rs.getString(1));
+                list.add(n);
+            }
+        }catch(SQLException ex){
+            System.out.println("exception");
         }
         return list;
     }
