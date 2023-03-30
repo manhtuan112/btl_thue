@@ -47,7 +47,7 @@
                 <a href="#" class="btn btn-info btn-lg mb-4" role="button" aria-pressed="true">Xuất báo cáo</a>
             </div>
             <div>
-                <a href="#" class="btn btn-info btn-lg mb-4" role="button" aria-pressed="true">Cấu hình</a>
+                <a href="setting" class="btn btn-info btn-lg mb-4" role="button" aria-pressed="true">Cấu hình</a>
             </div>
         </div>
         

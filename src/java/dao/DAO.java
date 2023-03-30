@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
 import model.History;
+import model.SettingInform;
 import model.User;
 import utilities.Utilities;
 
@@ -186,7 +187,27 @@ public class DAO {
         
         return list;
     }
-    
+    public List<SettingInform> getBangBieuThue(){
+        List<SettingInform> list = new ArrayList<>();
+        String query = "select * from bangbieuthue";
+       
+        try{
+            Connection conn = DBContext.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                SettingInform st = new SettingInform();
+                st.setId(rs.getInt(1));
+                st.setMocThue(rs.getString(2));
+                st.setThueSuat(rs.getString(3));
+                st.setNgaySuaDoi(rs.getDate(4));
+                list.add(st);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     public User getUserByIdThue(String idThue){
         String query = "select * from users where idthue = ?";
         Connection conn = DBContext.getConnection();
@@ -222,6 +243,39 @@ public class DAO {
         return null;
     }
     
+    
+    public SettingInform getSettingInforById(String id){
+        String query = "SELECT * FROM bangbieuthue where id = ?";
+        Connection conn = DBContext.getConnection();
+        try{
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                return new SettingInform(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getDate(4));
+            }
+            
+        }catch(SQLException ex){
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void updateSettingInform(int id, String mocThue, String thueSuat, String ngaySuaDoi){
+        String query = "update bangbieuthue set mocthue= ?, thuesuat= ?, ngaysuadoi= ? where id = ?";
+        Connection conn = DBContext.getConnection();
+        try{
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1,mocThue);
+            ps.setString(2,thueSuat);
+            ps.setString(3,ngaySuaDoi);
+            ps.setInt(4,id);
+            ps.executeUpdate();
+            
+        }catch(SQLException ex){
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public String getAddresById(String id){
         String diachi="";
         String query = "select * from diachi where idDC=?";
