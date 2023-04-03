@@ -13,6 +13,13 @@ public class History {
     private String ngaydongthue, idLichsu;
     private String sotiendadong, sotienconno, sotienphaidong;
 
+    public History() {
+    }
+    
+    
+    
+   
+
     public History(String ngaydongthue, String idLichsu, String sotiendadong, String sotienconno, String sotienphaidong,String idthue) {
         this.ngaydongthue = ngaydongthue;
         this.idLichsu = idLichsu;

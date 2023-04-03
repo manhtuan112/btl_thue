@@ -11,6 +11,11 @@ package model;
 public class Account {
     private String IDuser, username, password;
 
+    public Account() {
+    }
+    
+    
+
     public Account(String IDuser, String username, String password) {
         this.IDuser = IDuser;
         this.username = username;
