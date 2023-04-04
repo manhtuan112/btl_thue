@@ -42,12 +42,12 @@
                         class="img-fluid" alt="Phone image">
                 </div>
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form class="login-form" action="login" method="post">
+                    <form class="login-form" action="login" method="post" >
                         <h1 class="d-flex justify-content-center">Login</h1>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form1Example13">Username</label>
-                            <input type="text" id="form1Example13" class="form-control form-control-lg" name="user" value="" required checked/>
+                            <input type="text" id="form1Example13" class="form-control form-control-lg" name="user" value="" required />
 
                         </div>
 
@@ -77,24 +77,24 @@
 
 
                     <!--Form resigter-->
-                    <form class="signup-form" action="signup" method="post">
+                    <form name="signup-form" class="signup-form" action="signup" method="post" onsubmit="return validateForm()">
                         <h1 class="d-flex justify-content-center">Signup</h1>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example13">Username</label>
+                            <label class="form-label" for="form1Example13">Username (*)</label>
                             <input type="text" id="form1Example13" class="form-control form-control-lg" name="user" required checked/>
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example23">Password</label>
-                            <input type="password" id="form1Example23" class="form-control form-control-lg" name="pass" required />
-
+                            <label class="form-label" for="form1Example23">Password (*)</label>
+                            <input type="password" id="form1Example23" class="form-control form-control-lg pass" name="pass" required />
+                            <p class="mess_validate" style="color: red"></p>
                         </div>
                         <div class="form-outline mb-4">
                             
-                            <label class="form-label" for="form1Example23">Re-Password</label>
+                            <label class="form-label" for="form1Example23">Re-Password (*)</label>
                             <input type="password" id="form1Example23" class="form-control form-control-lg" name="repass" required />
                             <p class="mess" style="color: red">${mess}</p>
                         </div>
@@ -171,6 +171,19 @@
             document.querySelector(".mess").innerHTML="";
 
         })
+        
+        
+        //Validate form
+        const validateForm = () =>{
+            let pass = document.querySelector(".signup-form .pass").value;
+            if (pass.length < 6 || !(/[a-z]+/.test(pass) && /[0-9]+/.test(pass) && !(/\s+/.test(pass)) && /[A-Z]+/.test(pass) && /\W+/.test(pass))) {
+        
+            document.querySelector(".mess_validate").innerHTML = "Mật khẩu phải dài ít nhất 6 ký tự và chứa đầy đủ chữ hoa, chữ thường, số và ký tự đặc biệt"
+            document.querySelector(".mess").innerHTML=""
+            return false
+
+            }
+        }
 
     </script>
 </body>
