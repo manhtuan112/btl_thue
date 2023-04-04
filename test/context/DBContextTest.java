@@ -39,11 +39,9 @@ public class DBContextTest {
 
     @Test
     public void testGetConnection() {
-        System.out.println("getConnection");
-        Connection expResult = null;
+        System.out.println("getConnection: Kiem tra co ket not thanh cong den csdl khong");
         Connection result = DBContext.getConnection();
-        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
     
 }

@@ -120,12 +120,17 @@ public class DAO {
             query += " and sothueconno!='0'";
         } else if(status.equals("2")){
             query += " and sothueconno='0'";
+        } else if(status.equals("0")){
+            query += "";
+        } else{
+            return null;
         }
         
         Connection conn = DBContext.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
+            
             while(rs.next()){
                 
                 User u = new User();
@@ -151,14 +156,20 @@ public class DAO {
         String query="";
         if(filter_roll.equals("2")){
             query = "select * from users where hoten = ?";
-        } else{
+        } else if(filter_roll.equals("3")){
             query = "select * from users where idThue = ?";
+        } else{
+            return null;
         }
         
         if(status.equals("1")){
             query += " and sothueconno!='0'";
         } else if(status.equals("2")){
             query += " and sothueconno='0'";
+        } else if(status.equals("0")){
+            query+="";
+        } else{
+            return null;
         }
         
         Connection conn = DBContext.getConnection();

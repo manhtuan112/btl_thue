@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author ADMIN
  */
-public class HomeCotrollerTest {
+public class SignupControllerTest {
     
-    public HomeCotrollerTest() {
+    public SignupControllerTest() {
     }
     
     @BeforeClass
@@ -43,8 +43,9 @@ public class HomeCotrollerTest {
         System.out.println("processRequest");
         HttpServletRequest request = null;
         HttpServletResponse response = null;
-        HomeCotroller instance = new HomeCotroller();
+        SignupController instance = new SignupController();
         instance.processRequest(request, response);
+        fail("The test case is a prototype.");
     }
 
     @Test
@@ -52,9 +53,9 @@ public class HomeCotrollerTest {
         System.out.println("doGet");
         HttpServletRequest request = null;
         HttpServletResponse response = null;
-        HomeCotroller instance = new HomeCotroller();
+        SignupController instance = new SignupController();
         instance.doGet(request, response);
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     @Test
@@ -62,19 +63,19 @@ public class HomeCotrollerTest {
         System.out.println("doPost");
         HttpServletRequest request = null;
         HttpServletResponse response = null;
-        HomeCotroller instance = new HomeCotroller();
+        SignupController instance = new SignupController();
         instance.doPost(request, response);
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     @Test
     public void testGetServletInfo() {
         System.out.println("getServletInfo");
-        HomeCotroller instance = new HomeCotroller();
+        SignupController instance = new SignupController();
         String expResult = "";
         String result = instance.getServletInfo();
         assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

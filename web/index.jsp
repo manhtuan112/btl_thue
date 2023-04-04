@@ -13,6 +13,8 @@
     <title>Thuế thu nhập cá nhân</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/png"
+        href="https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-thue-nha-nuoc-vector-inkythuatso-01-07-16-32-44.jpg" sizes="32x32">
 </head>
 <style>
     .divider:after,
@@ -56,11 +58,10 @@
 
                         </div>
 
-                        <div class="d-flex justify-content-around align-items-center mb-4">
+                        <div class="d-flex justify-content-center align-items-center mb-4">
                             <!-- Checkbox -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                                <label class="form-check-label" for="form1Example3"> Remember me </label>
+                            <div class="form-check me-4">
+                                Don't have account?
                             </div>
                             <a href="#" class="go-signup">Sign up</a>
                         </div>

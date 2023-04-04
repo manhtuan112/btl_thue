@@ -23,6 +23,7 @@ import model.User;
  *
  * @author BENH VIEN CONG NGHE
  */
+
 @WebServlet(name="ReportController", urlPatterns={"/report"})
 public class ReportController extends HttpServlet {
    
