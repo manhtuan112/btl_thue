@@ -118,8 +118,7 @@ public class TheodoidanhsachDAOTest {
     }
 
     
-    @Test
-    
+    @Test 
     public void testSignup_Test1() {
         System.out.println("signup_Test1(hợp lệ): Khởi tạo đúng");
         String user = "admin4";

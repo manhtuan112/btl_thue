@@ -13,17 +13,19 @@ import java.util.Date;
  */
 public class SettingInform {
     private int id;
-    private String thueSuat;
-    private String mocThue;
+    private String mocDuoi;
+    private String mocTren;
+    private float thueSuat;
     private Date ngaySuaDoi;
 
     public SettingInform() {
     }
 
-    public SettingInform(int id, String thueSuat, String mocThue, Date ngaySuaDoi) {
+    public SettingInform(int id, String mocDuoi, String mocTren, float thueSuat, Date ngaySuaDoi) {
         this.id = id;
+        this.mocDuoi = mocDuoi;
+        this.mocTren = mocTren;
         this.thueSuat = thueSuat;
-        this.mocThue = mocThue;
         this.ngaySuaDoi = ngaySuaDoi;
     }
 
@@ -35,20 +37,28 @@ public class SettingInform {
         this.id = id;
     }
 
-    public String getThueSuat() {
+    public String getMocDuoi() {
+        return mocDuoi;
+    }
+
+    public void setMocDuoi(String mocDuoi) {
+        this.mocDuoi = mocDuoi;
+    }
+
+    public String getMocTren() {
+        return mocTren;
+    }
+
+    public void setMocTren(String mocTren) {
+        this.mocTren = mocTren;
+    }
+
+    public float getThueSuat() {
         return thueSuat;
     }
 
-    public void setThueSuat(String thueSuat) {
+    public void setThueSuat(float thueSuat) {
         this.thueSuat = thueSuat;
-    }
-
-    public String getMocThue() {
-        return mocThue;
-    }
-
-    public void setMocThue(String mocThue) {
-        this.mocThue = mocThue;
     }
 
     public Date getNgaySuaDoi() {
@@ -57,11 +67,6 @@ public class SettingInform {
 
     public void setNgaySuaDoi(Date ngaySuaDoi) {
         this.ngaySuaDoi = ngaySuaDoi;
-    }
-
-    @Override
-    public String toString() {
-        return "SettingInform{" + "id=" + id + ", thueSuat=" + thueSuat + ", mocThue=" + mocThue + ", ngaySuaDoi=" + ngaySuaDoi + '}';
     }
     
    

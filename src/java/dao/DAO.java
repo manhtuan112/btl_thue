@@ -201,27 +201,8 @@ public class DAO {
         
         return list;
     }
-    public List<SettingInform> getBangBieuThue(){
-        List<SettingInform> list = new ArrayList<>();
-        String query = "select * from bangbieuthue";
-       
-        try{
-            Connection conn = DBContext.getConnection();
-            PreparedStatement ps = conn.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                SettingInform st = new SettingInform();
-                st.setId(rs.getInt(1));
-                st.setMocThue(rs.getString(2));
-                st.setThueSuat(rs.getString(3));
-                st.setNgaySuaDoi(rs.getDate(4));
-                list.add(st);
-            }
-        }catch (SQLException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list;
-    }
+    
+    
     public User getUserByIdThue(String idThue){
         String query = "select * from users where idthue = ?";
         Connection conn = DBContext.getConnection();
@@ -258,6 +239,32 @@ public class DAO {
     }
     
     
+    // lấy danh sách bảng cấu hình
+    public List<SettingInform> getBangBieuThue(){
+        List<SettingInform> list = new ArrayList<>();
+        String query = "select * from bangbieuthue";
+       
+        try{
+            Connection conn = DBContext.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                SettingInform st = new SettingInform();
+                st.setId(rs.getInt(1));
+                st.setMocDuoi(rs.getString(2));
+                st.setMocTren(rs.getString(3));
+                st.setThueSuat(rs.getFloat(4));
+                st.setNgaySuaDoi(rs.getDate(5));
+                list.add(st);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    
+    // lấy thông tin cấu hình 
     public SettingInform getSettingInforById(String id){
         String query = "SELECT * FROM bangbieuthue where id = ?";
         Connection conn = DBContext.getConnection();
@@ -266,30 +273,37 @@ public class DAO {
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                return new SettingInform(rs.getInt(1), rs.getString(3),rs.getString(2), rs.getDate(4));
+                return new SettingInform(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getFloat(4), rs.getDate(5));
             }
-            
+           
         }catch(SQLException ex){
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
     
-    public void updateSettingInform(int id, String mocThue, String thueSuat, String ngaySuaDoi){
-        String query = "update bangbieuthue set mocthue= ?, thuesuat= ?, ngaysuadoi= ? where id = ?";
-        Connection conn = DBContext.getConnection();
+    
+    // cấu hình lại các thông số   
+    public boolean updateSettingInform(int id, String mocDuoi, String mocTren, float thueSuat, String ngaySuaDoi, Connection conn){
+        String query = "update bangbieuthue set mocduoi=?, moctren =?, thuesuat=?, ngaysuadoi=? where id=?";
+//        Connection conn = DBContext.getConnection();
         try{
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1,mocThue);
-            ps.setString(2,thueSuat);
-            ps.setString(3,ngaySuaDoi);
-            ps.setInt(4,id);
+            ps.setString(1,mocDuoi);
+            ps.setString(2,mocTren);
+            ps.setFloat(3,thueSuat);
+            ps.setString(4,ngaySuaDoi);
+            ps.setInt(5,id);
             ps.executeUpdate();
+            return true;
             
         }catch(SQLException ex){
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
     }
+    
+    
     public String getAddresById(String id){
         String diachi="";
         String query = "select * from diachi where idDC=?";

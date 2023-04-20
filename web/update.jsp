@@ -22,13 +22,19 @@
                 </td>
             </table>
             <table table class="table table-bordered table-hover" border="1" cellpadding="5" style="width: 100%;">
-                <td>Mốc thuế</td>
+                <td>Mốc thuế Dưới(Triệu đồng/tháng)</td>
                 <td>
-                    <input value="${st.mocThue}" type="text" name="mocThue" >
+                    <input value="${st.mocDuoi}" type="text" name="mocDuoi" >
                 </td>
             </table>
             <table table class="table table-bordered table-hover" border="1" cellpadding="5" style="width: 100%;">
-                <td>Thuế suất</td>
+                <td>Mốc thuế Trên(Triệu đồng/tháng)</td>
+                <td>
+                    <input value="${st.mocTren}" type="text" name="mocTren" >
+                </td>
+            </table>
+            <table table class="table table-bordered table-hover" border="1" cellpadding="5" style="width: 100%;">
+                <td>Thuế suất(%)</td>
                 <td>
                     <input value="${st.thueSuat}" type="text" name="thueSuat" >
                 </td>
@@ -46,7 +52,6 @@
                     <button type="submit">Update</button>
                 </td>
             </table>
-            
             
         </form>
     </body>

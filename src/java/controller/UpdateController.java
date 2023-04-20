@@ -4,9 +4,11 @@
  */
 package controller;
 
+import context.DBContext;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,12 +70,20 @@ public class UpdateController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(request.getParameter("id"));
-        String mocThue = request.getParameter("mocThue");
-        String thueSuat = request.getParameter("thueSuat");
+//        request.setAttribute("id", id);
+        String mocDuoi = request.getParameter("mocDuoi");
+//        request.setAttribute("mocDuoi", mocDuoi);
+        String mocTren = request.getParameter("mocTren");
+//        request.setAttribute("mocTren", mocTren);
+        float thueSuat = Float.parseFloat(request.getParameter("thueSuat"));
+//        request.setAttribute("thueSuat", thueSuat);
         String ngaySuaDoi = request.getParameter("ngaySuaDoi");
+//        request.setAttribute("ngaySuaDoi", ngaySuaDoi);
         DAO dao = new DAO();
-        dao.updateSettingInform(id, mocThue, thueSuat, ngaySuaDoi);
-        response.sendRedirect("setting");
+        Connection conn = DBContext.getConnection();
+        dao.updateSettingInform(id, mocDuoi, mocTren, thueSuat, ngaySuaDoi, conn);
+//        response.sendRedirect("setting");
+        request.getRequestDispatcher("setting").forward(request, response);
     }
 
     /**

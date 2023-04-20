@@ -31,25 +31,23 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">ID</th>
-                                                            <th scope="col">Thue suat theo thang</th>
-                                                            <th scope="col">Moc thue</th>
-                                                            <th scope="col">Ngay sua doi</th>
-                                                            <!--                        <th scope="col">ADDRESS</th>
-                                                                                    <th scope="col">SALARY</th>-->
+                                                            <th scope="col">Mốc thuế dưới<br>(Triệu đồng/tháng)</th>
+                                                            <th scope="col">Mốc thuế trên<br>(Triệu đồng/tháng)</th>
+                                                            <th scope="col">Thuế suất<br>(%)</th>
+                                                            <th scope="col">Ngày sửa đổi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                     <c:forEach items="${Lists}" var="x">
                                                         <tr>
                                                             <th scope="row">${x.id}</th>
+                                                            <td>${x.mocDuoi}</td>
+                                                            <td>${x.mocTren}</td>
                                                             <td>${x.thueSuat}</td>
-                                                            <td>${x.mocThue}</td>
                                                             <td>${x.ngaySuaDoi}</td>
                                                             <td>
                                                                 <a href="update?sid=${x.id}">update</a>
-
                                                             </td>
-
                                                         </tr>
                                                     </c:forEach>
 
