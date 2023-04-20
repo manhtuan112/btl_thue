@@ -4,9 +4,11 @@
  */
 package controller;
 
+import context.DBContext;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -44,12 +46,19 @@ public class SignupController extends HttpServlet {
         } else{
             DAO dao = new DAO();
             Account a = dao.checkAccountExist(user);
+            Connection conn = DBContext.getConnection();
             if(a==null){
-                dao.signup(user, pass);
-                Cookie usernameCookie = new Cookie("user", user);
-                response.addCookie(usernameCookie);
-
-                response.sendRedirect("home");
+                boolean check = dao.signup(user, pass, conn);
+                if(check){
+                    Cookie usernameCookie = new Cookie("user", user);
+                    response.addCookie(usernameCookie);
+                    response.sendRedirect("home");
+                }
+                else{
+                    request.setAttribute("status", "Signup Failed");
+                    request.setAttribute("toggle", "signup-form");
+                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                }
             } else{
                 request.setAttribute("status", "Signup Failed");
                 request.setAttribute("toggle", "signup-form");

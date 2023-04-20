@@ -33,6 +33,10 @@
             text-align: center;
         }
         
+        .pr-6{
+            padding-right: 4%!important;
+        }
+        
     </style>
     <body>
         <jsp:include page="Navbar.jsp"></jsp:include>
@@ -99,7 +103,7 @@
                         <th>Thông tin</th>
                         <th>Tình trạng</th>
                         <th>Mã số thuế</th>
-                        <th>Actions</th>
+                        <th>Hành động</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -136,9 +140,9 @@
                               
                               
                             </td>
-                            <td>${u.idThue}</td>
+                            <td class="text-end pr-6">${u.idThue}</td>
                             <td>
-                              <a href="thongtincanhan?idThue=${u.idThue}" class="btn btn-link btn-sm btn-rounded" role="button" aria-pressed="true">View Detail</a>
+                              <a href="thongtincanhan?idThue=${u.idThue}" class="btn btn-link btn-sm btn-rounded" role="button" aria-pressed="true">Xem chi tiết</a>
                             </td>
                           </tr>
                         </c:forEach>
@@ -259,7 +263,7 @@
                     e.preventDefault();
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Oops...',
+                        title: 'Bạn thao tác sai rồi...!',
                         text: 'Vui lòng chọn bộ lọc để xem kết quả!!!'
                     })                    
                 } else if(formToogle.value==2 || formToogle.value==3){ // để trống không nhập tên hoặc id thuế
@@ -267,7 +271,7 @@
                         e.preventDefault();
                         Swal.fire({
                             icon: 'warning',
-                            title: 'Oops...',
+                            title: 'Bạn thao tác sai rồi...!',
                             text: 'Không được để trống giá trị lọc!!!'
                         })  
                     }
@@ -277,7 +281,7 @@
                         e.preventDefault();
                         Swal.fire({
                             icon: 'warning',
-                            title: 'Oops...',
+                            title: 'Bạn thao tác sai rồi...!',
                             text: 'Không được để trống giá trị lọc!!!'
                         })  
                     }

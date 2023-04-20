@@ -39,6 +39,10 @@
             height: 100%;
         }
         
+        .pr-6{
+            padding-right: 9%!important;
+        }
+        
     </style>
     <body>
         <jsp:include page="Navbar.jsp"></jsp:include>
@@ -107,20 +111,22 @@
 
 
                         <tr>
-                        <td>
-                          <span class="fw-normal">${h.idLichsu}</span>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">${h.ngaydongthue}</p>
-                        </td>
-                        <td>
-                          <span class="fw-normal">${h.sotienphaidong}</span>
-                        </td>
-                        <td>${h.sotiendadong}</td>
-                        <td>
-                          ${h.sotienconno}
-                        </td>
-                      </tr>
+                            <td>
+                              <span class="fw-normal">${h.idLichsu}</span>
+                            </td>
+                            <td>
+                              <p class="fw-normal mb-1">${h.ngaydongthue}</p>
+                            </td>
+                            <td class="text-end pr-6">
+                              <span class="fw-normal">${h.sotienphaidong}</span>
+                            </td>
+                            <td class="text-end pr-6">
+                                ${h.sotiendadong}
+                            </td>
+                            <td class="text-end pr-6">
+                                ${h.sotienconno}
+                            </td>
+                         </tr>
 
                     </c:forEach>
                     </tbody>

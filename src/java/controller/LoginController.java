@@ -4,9 +4,11 @@
  */
 package controller;
 
+import context.DBContext;
 import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +42,8 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } else{
             DAO dao = new DAO();
-            Account a = dao.login(username, password);
+            Connection conn = DBContext.getConnection();
+            Account a = dao.login(username, password, conn);
             if(a==null){
                 request.setAttribute("status", "Login Failed");
                 request.setAttribute("user", "");

@@ -43,17 +43,17 @@
                 </div>
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                     <form class="login-form" action="login" method="post" >
-                        <h1 class="d-flex justify-content-center">Login</h1>
+                        <h1 class="d-flex justify-content-center">Đăng nhập</h1>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example13">Username</label>
+                            <label class="form-label" for="form1Example13">Tên người dùng</label>
                             <input type="text" id="form1Example13" class="form-control form-control-lg" name="user" value="" required />
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example23">Password</label>
+                            <label class="form-label" for="form1Example23">Mật khẩu</label>
                             <input type="password" id="form1Example23" class="form-control form-control-lg" value="" name="pass" required />
 
                         </div>
@@ -61,14 +61,14 @@
                         <div class="d-flex justify-content-center align-items-center mb-4">
                             <!-- Checkbox -->
                             <div class="form-check me-4">
-                                Don't have account?
+                                Bạn chưa có tài khoản?
                             </div>
-                            <a href="#" class="go-signup">Sign up</a>
+                            <a href="#" class="go-signup">Đăng kí</a>
                         </div>
 
                         <!-- Submit button -->
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
                         </div>
 
 
@@ -78,23 +78,23 @@
 
                     <!--Form resigter-->
                     <form name="signup-form" class="signup-form" action="signup" method="post" onsubmit="return validateForm()">
-                        <h1 class="d-flex justify-content-center">Signup</h1>
+                        <h1 class="d-flex justify-content-center">Đăng kí</h1>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example13">Username (*)</label>
+                            <label class="form-label" for="form1Example13">Tên người dùng (*)</label>
                             <input type="text" id="form1Example13" class="form-control form-control-lg" name="user" required checked/>
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example23">Password (*)</label>
+                            <label class="form-label" for="form1Example23">Mật khẩu (*)</label>
                             <input type="password" id="form1Example23" class="form-control form-control-lg pass" name="pass" required />
                             <p class="mess_validate" style="color: red"></p>
                         </div>
                         <div class="form-outline mb-4">
                             
-                            <label class="form-label" for="form1Example23">Re-Password (*)</label>
+                            <label class="form-label" for="form1Example23">Nhập lại mật khẩu (*)</label>
                             <input type="password" id="form1Example23" class="form-control form-control-lg" name="repass" required />
                             <p class="mess" style="color: red">${mess}</p>
                         </div>
@@ -102,12 +102,12 @@
                         <div class="d-flex justify-content-around align-items-center mb-4">
                             <!-- Checkbox -->
 
-                            <a href="#" class="back-login">Login</a>
+                            <a href="#" class="back-login">Đăng nhập</a>
                         </div>
 
                         <!-- Submit button -->
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng kí</button>
                         </div>
 
 
@@ -144,14 +144,14 @@
         if(status==="Login Failed"){
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Wrong Username or Password!!!'
+                title: 'Đăng nhập thất bại...',
+                text: 'Sai tên người dùng hoặc mật khẩu!!!'
             })
         } else if(status=="Signup Failed"){
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: 'Username already exists!!!'
+                title: 'Đăng nhập thất bại...',
+                text: 'Người dùng đã tồn tại!!!'
             })
         }
         

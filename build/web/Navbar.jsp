@@ -36,7 +36,7 @@
                 <button type="button" class="btn px-3 me-2">
                   Xin chào, ${username}
                 </button>
-                <a href="login" class="logout-btn btn btn-primary me-3" role="button" aria-pressed="true">Logout</a>
+                <a href="login" class="logout-btn btn btn-primary me-3" role="button" aria-pressed="true">Đăng xuất</a>
                 
 
                 

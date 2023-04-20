@@ -29,11 +29,12 @@ public class DAO {
     
     
     
-    public Account login(String user, String pass){
+    
+    public Account login(String user, String pass, Connection conn){
         
         String query = "select * from accountadmin where username = ? and password = ?";
         try{
-            Connection conn = DBContext.getConnection();
+//            Connection conn = DBContext.getConnection();
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, user);
             ps.setString(2, pass);
@@ -72,20 +73,22 @@ public class DAO {
         return null;
     }
     
-    public void signup(String user, String pass){
+    public boolean signup(String user, String pass, Connection conn){
         Calendar d = Calendar.getInstance();
         String idUser = "ACC_"+user.toLowerCase()+"_"+d.get(Calendar.YEAR);
         String query = "insert into accountadmin values(?,?,?)";
-        Connection conn = DBContext.getConnection();
+        
         try {
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, idUser);
             ps.setString(2, pass);
             ps.setString(3, user);
             ps.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
     }
     
     
