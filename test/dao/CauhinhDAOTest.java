@@ -74,9 +74,8 @@ public class CauhinhDAOTest {
         System.out.println("getSettingInforById khi id null: ");
         String id = "";
         DAO instance = new DAO();
-        SettingInform expResult = null;
         SettingInform result = instance.getSettingInforById(id);
-        assertEquals(expResult.getId(), result.getId());
+        assertNull(result);
 
     }
     
@@ -85,9 +84,9 @@ public class CauhinhDAOTest {
         System.out.println("getSettingInforById hop le: ");
         String id = "1";
         DAO instance = new DAO();
-        SettingInform expResult = null;
+        
         SettingInform result = instance.getSettingInforById(id);
-        assertEquals(expResult.getId(), result.getId());
+        assertEquals(id, String.valueOf(result.getId()));
 
     }
     
@@ -96,9 +95,9 @@ public class CauhinhDAOTest {
         System.out.println("getSettingInforById khong hop le: ");
         String id = "-1";
         DAO instance = new DAO();
-        SettingInform expResult = null;
+        
         SettingInform result = instance.getSettingInforById(id);
-        assertEquals(expResult.getId(), result.getId());
+        assertNull(result);
 
     }
 //------------------------------------------------------------------------------------------------------------------------------   
@@ -135,7 +134,7 @@ public class CauhinhDAOTest {
             
             
             assertEquals(mocDuoi, set.getMocDuoi());
-            assertEquals(mocTren, set.getMocDuoi());
+            assertEquals(mocTren, set.getMocTren());
             assertEquals(thueSuat, set.getThueSuat());
             assertEquals(ngaySuaDoi, set.getNgaySuaDoi());
            
@@ -182,7 +181,7 @@ public class CauhinhDAOTest {
             
             
             assertEquals(mocDuoi, set.getMocDuoi());
-            assertEquals(mocTren, set.getMocDuoi());
+            assertEquals(mocTren, set.getMocTren());
             assertEquals(thueSuat, set.getThueSuat());
             assertEquals(ngaySuaDoi, set.getNgaySuaDoi());
            
@@ -227,7 +226,7 @@ public class CauhinhDAOTest {
             
             
             assertEquals(mocDuoi, set.getMocDuoi());
-            assertEquals(mocTren, set.getMocDuoi());
+            assertEquals(mocTren, set.getMocTren());
             assertEquals(thueSuat, set.getThueSuat());
             assertEquals(ngaySuaDoi, set.getNgaySuaDoi());
            
@@ -271,7 +270,7 @@ public class CauhinhDAOTest {
             
             
             assertEquals(mocDuoi, set.getMocDuoi());
-            assertEquals(mocTren, set.getMocDuoi());
+            assertEquals(mocTren, set.getMocTren());
             assertEquals(thueSuat, set.getThueSuat());
             assertEquals(ngaySuaDoi, set.getNgaySuaDoi());
            
@@ -317,7 +316,7 @@ public class CauhinhDAOTest {
             
             
             assertEquals(mocDuoi, set.getMocDuoi());
-            assertEquals(mocTren, set.getMocDuoi());
+            assertEquals(mocTren, set.getMocTren());
             assertEquals(thueSuat, set.getThueSuat());
             assertEquals(ngaySuaDoi, set.getNgaySuaDoi());
            
