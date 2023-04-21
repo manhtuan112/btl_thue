@@ -16,14 +16,6 @@ public class Utilities {
         return dates[2]+"/"+dates[1]+"/"+dates[0];
         
     }
-    
-    public static String convertDate(Date date) {
-        String rs = date.toString();
-        String[] dates = rs.split("-");
-        return dates[2]+"/"+dates[1]+"/"+dates[0];
-        
-    }
-    
     public static String convertMoneyFormat(long money) {
         String atmp=String.valueOf(money);
         String res = "";
