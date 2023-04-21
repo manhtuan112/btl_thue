@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,23 @@ public class UpdateController extends HttpServlet {
         DAO dao = new DAO();
         SettingInform s = dao.getSettingInforById(id);
         request.setAttribute("st", s);
+        
+        Cookie cookies[] = request.getCookies();
+        boolean accecptLogin = false;
+        int indexLogin = 0;
+        for(int i=0; i<cookies.length;i++){
+            if(cookies[i].getName().equals("user")) {
+                accecptLogin=true;
+                indexLogin = i;
+                break;
+            }
+        }
+        if(accecptLogin){
+            request.setAttribute("username", cookies[indexLogin].getValue());
+        }
+        else{
+            response.sendRedirect("index.jsp");
+        }
         request.getRequestDispatcher("update.jsp").forward(request, response);
     }
 

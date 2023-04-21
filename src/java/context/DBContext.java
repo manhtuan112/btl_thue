@@ -18,7 +18,7 @@ public class DBContext {
     public static Connection getConnection(){
         String url = "jdbc:mysql://localhost:3306/thuedb";
         String user = "root";
-        String password = "22091970";
+        String password = "123456";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
            

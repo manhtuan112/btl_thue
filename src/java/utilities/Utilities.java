@@ -4,6 +4,8 @@
  */
 package utilities;
 
+import java.util.Date;
+
 /**
  *
  * @author ADMIN
@@ -11,6 +13,13 @@ package utilities;
 public class Utilities {
     public static String convertDate(String date) {
         String[] dates = date.split("-");
+        return dates[2]+"/"+dates[1]+"/"+dates[0];
+        
+    }
+    
+    public static String convertDate(Date date) {
+        String rs = date.toString();
+        String[] dates = rs.split("-");
         return dates[2]+"/"+dates[1]+"/"+dates[0];
         
     }
