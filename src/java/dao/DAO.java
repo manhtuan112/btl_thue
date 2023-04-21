@@ -237,8 +237,7 @@ public class DAO {
         }
         return null;
     }
-    
-    
+//-------------------------------------------------------Chức năng cấu hình------------------------------------------------------
     // lấy danh sách bảng cấu hình
     public List<SettingInform> getBangBieuThue(){
         List<SettingInform> list = new ArrayList<>();
@@ -302,8 +301,8 @@ public class DAO {
         }
         return false;
     }
-    
-    
+
+//---------------------------------------------------------Hết chức năng cấu hình-------------------------------------------------------
     public String getAddresById(String id){
         String diachi="";
         String query = "select * from diachi where idDC=?";
